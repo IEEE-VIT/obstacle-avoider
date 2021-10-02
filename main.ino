@@ -47,22 +47,6 @@ void setup() {
    * If obstacle is there, return logic 1 
    * if obstacle is not there, return logic 0
    */
-   
-  // Sound signal is sent to measure the distance
-  digitalWrite(trigPin,LOW);
-  delayMicroseconds(2);
-  digitalWrite(trigPin, HIGH);
-  delayMicroseconds(10);
-  digitalWrite(trigPin,LOW);
-  
-  //Measuring the duration of the reflecting sound
-  duration = pulseIn(echoPin, HIGH);
-
-  //Calculte the distance(in cm) from the object
-  distance = (duration/2)/29.1;
-  
-  //display the duration and dis
-  Serial.print(distance);
 
   //returning 1 if object is less than 10cm, else return 0
   if (distance <= 10 )
