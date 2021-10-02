@@ -1,23 +1,45 @@
 // Define the pins used to control
-#define trigPin 13
-#define echoPin 12
+
 // Defines variables used
 
-long duration; // variable for the duration of sound wave travel
 int distance; // variable for the distance measurement
+int trigPin=3;              //Sensor Trig pin connected to Arduino pin 9
+int echoPin=2;             //Sensor Echo pin connected to Arduino pin 10
+// Defines variables used
+double duration;             // variable for the duration of sound wave travel
+double dist;                 // variable for the distance measurement
+float speedOfSound=776.5;   //Speed of sound in mph
+
 
 void setup() {
   // put your setup code here, to run once:
   Serial.begin(9600); // // Serial Communication is starting with 9600 of baudrate speed
   //Set the digital pins' pinMode as INPUT or OUTPUT as needed.
-  pinMode(trigPin, OUTPUT);
-  pinMode(echoPin, INPUT);
+
+
+
+  pinMode(trigPin, OUTPUT);//set to OUTPUT
+  pinMode(echoPin, INPUT); //set to INPUT
+  
+  delay(1000);
+
  }
  double calcDistance(){
-  /*  Use any of the IR proximity sensor or Ultrasonic sensor to find the distance of obstacle in cms
-   *  You can refer to the sample codes given in the repository. 
-   */
-   return (distance);
+  
+    digitalWrite(trigPin, LOW); 
+    delayMicroseconds(2000); 
+    digitalWrite(trigPin, HIGH); 
+    delayMicroseconds(15); 
+    digitalWrite(trigPin, LOW); 
+    delayMicroseconds(10); 
+
+    duration = pulseIn(echoPin, HIGH);        //pingTime (in microceconds)
+    duration=duration/1000000;                //converting pingTime to seconds 
+    duration=duration/3600;                   //convert pingTime to hours 
+    dist= speedOfSound * duration;            //speed in mph
+    dist= dist/2;                             //Distance/2
+    dist= dist* 160934;                       //Convert miles to cm by multipling by 160934
+    return (dist);
  }
  
  int isObstacle(int distance){
