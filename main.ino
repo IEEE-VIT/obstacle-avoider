@@ -27,7 +27,7 @@ void setup() {
     duration = pulseIn(echoPin, HIGH);        //pingTime (in microceconds)
     duration=duration/1000000;                //converting pingTime to seconds 
     duration=duration/3600;                   //convert pingTime to hours 
-    dist= speedOfSound * pingTime;            //speed in mph
+    dist= speedOfSound * duration;            //speed in mph
     dist= dist/2;                             //Distance/2
     dist= dist* 160934;                       //Convert miles to cm by multipling by 160934
     return (dist);
