@@ -1,14 +1,17 @@
 // Define the pins used to control
-
+#define trigPin 13
+#define echoPin 12
 // Defines variables used
 
 long duration; // variable for the duration of sound wave travel
-int dist; // variable for the distance measurement
+int distance; // variable for the distance measurement
 
 void setup() {
   // put your setup code here, to run once:
   Serial.begin(9600); // // Serial Communication is starting with 9600 of baudrate speed
   //Set the digital pins' pinMode as INPUT or OUTPUT as needed.
+  pinMode(trigPin, OUTPUT);
+  pinMode(echoPin, INPUT);
  }
  double calcDistance(){
   /*  Use any of the IR proximity sensor or Ultrasonic sensor to find the distance of obstacle in cms
@@ -22,6 +25,28 @@ void setup() {
    * If obstacle is there, return logic 1 
    * if obstacle is not there, return logic 0
    */
+   
+  // Sound signal is sent to measure the distance
+  digitalWrite(trigPin,LOW);
+  delayMicroseconds(2);
+  digitalWrite(trigPin, HIGH);
+  delayMicroseconds(10);
+  digitalWrite(trigPin,LOW);
+  
+  //Measuring the duration of the reflecting sound
+  duration = pulseIn(echoPin, HIGH);
+
+  //Calculte the distance(in cm) from the object
+  distance = (duration/2)/29.1;
+  
+  //display the duration and dis
+  Serial.print(distance);
+
+  //returning 1 if object is less than 10cm, else return 0
+  if (distance <= 10 )
+    {return 1;}
+   else
+    {return 0;}
  }
 
  int moveSpeed(int Speed)
@@ -71,3 +96,4 @@ void loop() {
    */
 
 }
+
