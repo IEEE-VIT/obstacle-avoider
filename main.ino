@@ -2,15 +2,15 @@
 int trigPin=3;              //Sensor Trig pin connected to Arduino pin 9
 int echoPin=2;             //Sensor Echo pin connected to Arduino pin 10
 // Defines variables used
-long duration;             // variable for the duration of sound wave travel
-int dist;                 // variable for the distance measurement
+double duration;             // variable for the duration of sound wave travel
+double dist;                 // variable for the distance measurement
 float speedOfSound=776.5;   //Speed of sound in mph
 
 void setup() {
   // put your setup code here, to run once:
   Serial.begin(9600); // // Serial Communication is starting with 9600 of baudrate speed
   //Set the digital pins' pinMode as INPUT or OUTPUT as needed.
-  inMode(trigPin, OUTPUT);//set to OUTPUT
+  pinMode(trigPin, OUTPUT);//set to OUTPUT
   pinMode(echoPin, INPUT); //set to INPUT
   
   delay(1000);
