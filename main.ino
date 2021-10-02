@@ -2,7 +2,7 @@
 
 // Defines variables used
 
-int distance; // variable for the distance measurement
+
 int trigPin=3;              //Sensor Trig pin connected to Arduino pin 9
 int echoPin=2;             //Sensor Echo pin connected to Arduino pin 10
 // Defines variables used
