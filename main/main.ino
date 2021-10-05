@@ -12,10 +12,10 @@ float speedOfSound=776.5;   //Speed of sound in mph
 
 //defines variable used
 //motor pins
-int motorL1=7;        //fwd motion of left motor
-int motorL2=6;         //reverse motion of left motor
-int motorR1=5;            //fwd motion of right motor
-int motorR2=4;                 //reverse motion of left motor
+int motorL2=7;        //rev motion of left motor
+int motorL1=6;         //fwd motion of left motor
+int motorR2=5;            //rev motion of right motor
+int motorR1=4;                 //fwd motion of left motor
 
 void setup() {
   // put your setup code here, to run once:
@@ -103,19 +103,41 @@ void setup() {
    *  If Speed>0 move forwards else move Backwards
    */
    if (Speed>0){
+    
+   }
+
+   else{
+     
+   }
+ }
+
+void Forward(){
     digitalWrite(motorR1,HIGH);
     digitalWrite(motorR2,LOW);
     digitalWrite(motorL1,HIGH);       //move forwards
     digitalWrite(motorL2,LOW);
-   }
+}
 
-   else{
-     digitalWrite(motorR1,LOW);
+void Backwards(){
+      digitalWrite(motorR1,LOW);
       digitalWrite(motorR2,HIGH);     //move backwards
       digitalWrite(motorL1,LOW);
       digitalWrite(motorL2,HIGH);
-   }
- }
+}
+
+void Left(){
+    digitalWrite(motorR1,HIGH);
+    digitalWrite(motorR2,LOW);
+    digitalWrite(motorL1,LOW);       //move left
+    digitalWrite(motorL2,LOW);
+}
+
+void Right(){
+    digitalWrite(motorR1,LOW);
+    digitalWrite(motorR2,LOW);
+    digitalWrite(motorL1,HIGH);       //move left
+    digitalWrite(motorL2,LOW);
+}
  
 void loop() {
   // put your main code here, to run repeatedly:
