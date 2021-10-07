@@ -10,6 +10,12 @@ double duration;             // variable for the duration of sound wave travel
 double dist;                 // variable for the distance measurement
 float speedOfSound=776.5;   //Speed of sound in mph
 
+//defines variable used
+//motor pins
+int motorL2=7;        //rev motion of left motor
+int motorL1=6;         //fwd motion of left motor
+int motorR2=5;            //rev motion of right motor
+int motorR1=4;                 //fwd motion of left motor
 
 void setup() {
   // put your setup code here, to run once:
@@ -20,6 +26,11 @@ void setup() {
 
   pinMode(trigPin, OUTPUT);//set to OUTPUT
   pinMode(echoPin, INPUT); //set to INPUT
+
+  pinMode(motorR1,OUTPUT);    // Set Motor Pins As O/P
+  pinMode(motorR2,OUTPUT);
+  pinMode(motorL1,OUTPUT);
+  pinMode(motorL2,OUTPUT);
   
   delay(1000);
 
@@ -91,7 +102,42 @@ void setup() {
   /* Function to make the bot move forward or backwards
    *  If Speed>0 move forwards else move Backwards
    */
+   if (Speed>0){
+    
+   }
+
+   else{
+     
+   }
  }
+
+void Forward(){
+    digitalWrite(motorR1,HIGH);
+    digitalWrite(motorR2,LOW);
+    digitalWrite(motorL1,HIGH);       //move forwards
+    digitalWrite(motorL2,LOW);
+}
+
+void Backwards(){
+      digitalWrite(motorR1,LOW);
+      digitalWrite(motorR2,HIGH);     //move backwards
+      digitalWrite(motorL1,LOW);
+      digitalWrite(motorL2,HIGH);
+}
+
+void Left(){
+    digitalWrite(motorR1,HIGH);
+    digitalWrite(motorR2,LOW);
+    digitalWrite(motorL1,LOW);       //move left
+    digitalWrite(motorL2,LOW);
+}
+
+void Right(){
+    digitalWrite(motorR1,LOW);
+    digitalWrite(motorR2,LOW);
+    digitalWrite(motorL1,HIGH);       //move left
+    digitalWrite(motorL2,LOW);
+}
  
 void loop() {
   // put your main code here, to run repeatedly:
@@ -102,4 +148,3 @@ void loop() {
    */
 
 }
-
