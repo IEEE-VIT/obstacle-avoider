@@ -17,6 +17,9 @@ int motorL1=6;         //fwd motion of left motor
 int motorR2=5;            //rev motion of right motor
 int motorR1=4;                 //fwd motion of left motor
 
+int motorsSpeed = [3,11]; //Speed Control pins for L motor then R motor
+int normalSpeed = 50;
+int turboSpeed = 100;
 void setup() {
   // put your setup code here, to run once:
   Serial.begin(9600); // // Serial Communication is starting with 9600 of baudrate speed
@@ -31,9 +34,11 @@ void setup() {
   pinMode(motorR2,OUTPUT);
   pinMode(motorL1,OUTPUT);
   pinMode(motorL2,OUTPUT);
+  pinMode(motorsSpeed[0], OUTPUT);
+  pinMode(motorsSpeed[1], OUTPUT);
   
   delay(1000);
-
+  moveSpeed(normalSpeed);
  }
  double calcDistance(){
   
@@ -73,7 +78,15 @@ void setup() {
    * Calculate rpm and use diameter of wheel to get the estimate speed of robot.
    */
  }
-
+ 
+ void speedControl(String desired_speed, int custom_speed){
+  if(desired_speed == "Turbo")
+    moveSpeed(turboSpeed);
+  else if(desired_speed == "Normal")
+    moveSpeed(normalSpeed);
+  else if(desired_speed == "Custom")
+    moveSpeed(custom_speed);
+  }
  void changeDirection(String dir,int angle)
  {
   /*
