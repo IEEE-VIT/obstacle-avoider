@@ -7,6 +7,8 @@ const int leftForward = 13;
 const int leftBackward = 11;
 const int rightForward = 10;
 const int rightBackward = 12;
+const int enA = 6;
+const int enB = 5;
 
 // sensor pins
 #define trig_pin A1 // analog input 1
@@ -63,18 +65,18 @@ void loop()
 
     if (distance >= distanceLeft)
     {
-      Right();
+      Right(255);
       moveStop();
     }
     else
     {
-      Left();
+      Left(255);
       moveStop();
     }
   }
   else
   {
-    Forward();
+    Forward(255);
   }
   distance = readPing();
 }
@@ -120,14 +122,15 @@ void moveStop()
   digitalWrite(leftBackward, LOW);
 }
 
-void Forward()
+void Forward(int Speed)
 {
 
   if (!goesForward)
   {
 
     goesForward = true;
-
+    analogWrite(enA, Speed);
+    analogWrite(enB, Speed);
     digitalWrite(leftForward, HIGH);
     digitalWrite(rightForward, HIGH);
 
@@ -140,7 +143,8 @@ void Backward()
 {
 
   goesForward = false;
-
+  analogWrite(enA, Speed);
+  analogWrite(enB, Speed);
   digitalWrite(leftBackward, HIGH);
   digitalWrite(rightBackward, HIGH);
 
@@ -150,7 +154,8 @@ void Backward()
 
 void Right()
 {
-
+  analogWrite(enA, Speed);
+  analogWrite(enB, Speed);
   digitalWrite(leftForward, HIGH);
   digitalWrite(rightBackward, HIGH);
 
@@ -168,7 +173,8 @@ void Right()
 
 void Left()
 {
-
+  analogWrite(enA, Speed);
+  analogWrite(enB, Speed);
   digitalWrite(leftBackward, HIGH);
   digitalWrite(rightForward, HIGH);
 
