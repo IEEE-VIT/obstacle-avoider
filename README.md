@@ -1,4 +1,4 @@
-<p align="center"><img width="40%" src="https://hacktoberfest.digitalocean.com/_nuxt/img/logo-hacktoberfest-full.f42e3b1.svg"/></p>  
+<p align="center"><img width="40%" src="https://files.ieeevit.org/Hacktoberfest-23/Obstacle%20Avoider.png"/></p>  
 
 # ObstacleAvoider #  
 <img align="right" width="40%" src="https://hackster.imgix.net/uploads/attachments/1165785/_3hqEPWtb1C.blob?auto=compress%2Cformat&w=900&h=675&fit=min">  
@@ -26,7 +26,6 @@ Support open source software by participating in [Hacktoberfest](https://hacktob
 
 Kindly consider leaving a ⭐ if you like the repository and our organisation.
 
-> We are holding a virtual meetup on 2nd October, where we will be discussing OSS, GitHub and Hacktoberfest! Everyone's invited to [join](https://fossfiesta.ieeevit.org) 😄
 
 ## Getting Started ##  
 - Even this pandemic can’t stop us from making hardware projects, thanks to the simulators. 
