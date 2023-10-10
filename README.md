@@ -1,4 +1,4 @@
-<p align="center"><img width="40%" src="https://files.ieeevit.org/Hacktoberfest-23/Obstacle%20Avoider.png"/></p>  
+<p align="center"><img  src="https://files.ieeevit.org/Hacktoberfest-23/Obstacle%20Avoider.png"/></p>  
 
 # ObstacleAvoider #  
 <img align="right" width="40%" src="https://hackster.imgix.net/uploads/attachments/1165785/_3hqEPWtb1C.blob?auto=compress%2Cformat&w=900&h=675&fit=min">  
